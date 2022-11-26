@@ -1,13 +1,26 @@
 <html>
-  <head>
-    <title>Video Streaming Demonstration</title>
-  </head>
   <body>
-    <h1>Video Streaming Demonstration</h1>
-    <div class="row" style="justify-items:center">
-    <img src="{{ url_for('video_feed') }}"
-        width="45%" 
-        height="75%" >
+    <h1>Détecteur d'émotions</h1>
+    <div>
+      <!-- Icone d'appareil photo permettant de faire 
+      une capture de l'image en cours et d'afficher les
+      resultats de la prediction sur cette image  -->
+        <form action="/visualize_results" style="align-self: center;">
+          <input type="image" alt="submit" src="static/camera-icon.png"
+            width="48"
+            height="48"/>
+        </form>
+        <!-- Video feed -->
+        <img src="{{ url_for('video_feed') }}"
+          width="45%" 
+          height="45%" >
+    <!-- Affiche les resultats uniquement s'ils ont ete prealablement calcules, ie
+    si l'icone d'appareil photo a ete clique -->
+    {% if result != null %}
+      <img src="{{result}}"
+          width="45%" 
+          height="45%">
+    {% endif %}
     </div>
   </body>
 </html>
