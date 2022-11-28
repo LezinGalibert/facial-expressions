@@ -1,2 +1,7 @@
 flask
 opencv-python
+torch
+matplotlib
+numpy
+scikit-image
+pillow

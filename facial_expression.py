@@ -1,5 +1,3 @@
-import random
-
 import matplotlib.pyplot as plt
 from skimage import io
 from skimage.transform import resize
@@ -124,8 +122,7 @@ def generate_face(video):
 
             try:
                 # Dessine l'emoji correspondant a la prediction sur l'image
-                image[y+h:y+h+img_height, center[0]
-                    :center[0]+img_width] = img_emotion
+                image[y+h:y+h+img_height, center[0]                      :center[0]+img_width] = img_emotion
             except:
                 pass
 
@@ -194,6 +191,7 @@ def visualize_results():
     plt.savefig(os.path.join('static/results.png'))
     plt.close()
 
+    # Redirige vers la page d'accueil
     return redirect('/')
 
 
